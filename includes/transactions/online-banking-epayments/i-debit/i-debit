@@ -1,0 +1,29 @@
+<h3 id='idebit-2'>iDebit</h3>
+<aside class="notice" >
+iDebit connects consumers to their online banking directly from checkout, enabling secure, real-time payments without a credit card. Using iDebit allows consumers to transfer funds to merchants without revealing their personal banking information.
+<br><br>
+The main difference between iDebit and InstaDebit is that InstaDebit uses eCheck, iDebit uses online bank transfer.
+<br><br>
+iDebit transactions have payins and payouts. The payin is asynchronous, while the payout is synchronous.
+<br><br>
+iDebit Payin transaction - after a successful validation of transaction parameters, transaction status is set to pending async and the consumer is redirected to the iDebit consumers page. The consumer then carries out the specified transaction details and finalizes the transaction. The gateway waits for an async notification from iDebit with the payment result of the consumer bank payment executed on the iDebit consumers page, and updates the transaction status accordingly.
+<br><br>
+When the payment reaches a final state, the gateway sends a notification to the merchant on the configured notification URL for the merchant.
+iDebit Payout transaction - the transaction is synchronous and transaction status is set immediately after the response.
+</aside>
+
+<p><strong>Supported countries</strong></p>
+
+<table><thead>
+<tr>
+<th>Country code</th>
+<th>Country name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CA</td>
+<td>Canada</td>
+</tr>
+</tbody></table>
+
+<p>iDebit is available only for Canadian merchants and consumers.</p>
