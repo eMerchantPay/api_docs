@@ -16,13 +16,13 @@ iDebit Payout transaction - the transaction is synchronous and transaction statu
 
 <table><thead>
 <tr>
-<th>Country code</th>
 <th>Country name</th>
+<th>Country code</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>CA</td>
 <td>Canada</td>
+<td>CA</td>
 </tr>
 </tbody></table>
 
