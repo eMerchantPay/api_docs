@@ -593,6 +593,9 @@
                             <a href="#bitpay-payout" class="toc-h3 toc-link" data-title="Transactions:BitPay Payout">BitPay Payout</a>
                           </li>
                           <li>
+                            <a href="#ezeecard-payout" class="toc-h3 toc-link" data-title="Transactions:eZeeCard Payout">eZeeCard Payout</a>
+                          </li>
+                          <li>
                             <a href="#payout-3" class="toc-h3 toc-link" data-title="Transactions:Payout">Payout</a>
                           </li>
                           <li>
@@ -1013,9 +1016,9 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='version'>Version</h1>
-<p><strong>API version 11.7</strong></p>
+<p><strong>API version 11.8</strong></p>
 
-<p><strong>Documentation version 11.7</strong></p>
+<p><strong>Documentation version 11.8</strong></p>
 <h2 id='history'>History</h2>
 <table><thead>
 <tr>
@@ -1636,6 +1639,12 @@
 <td>2018/11/21</td>
 <td>Hristo Tenev</td>
 <td>Added Payout support for BitPay</td>
+</tr>
+<tr>
+<td>11.8</td>
+<td>2018/12/05</td>
+<td>Stefan Petrov</td>
+<td>Added API for eZeeCard Payout</td>
 </tr>
 </tbody></table>
 <h1 id='introduction'>Introduction</h1>
@@ -53970,6 +53979,286 @@ Address fields are required in case the crypto wallet provider is in the list ab
 <td>descriptor</td>
 <td>string</td>
 <td>Static descriptor MID info as configured on the gateway</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>integer</td>
+<td>Amount of transaction in minor currency unit, see <a href="#currency-and-amount-handling">Currency and Amount Handling</a> for details</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Currency code in <a href="http://www.xe.com/iso4217.php">ISO 4217</a></td>
+</tr>
+</tbody></table>
+<h3 id='ezeecard-payout'>eZeeCard Payout</h3>
+<p>eZeeCard Payout is a sync based payout method. It&#39;s merchant initiated and can only reference specific
+transaction types:</p>
+
+<ul>
+<li><a href="#capture">Capture</a></li>
+<li><a href="#sale">Sale</a></li>
+<li><a href="#sale-3d">Sale3d</a></li>
+<li><a href="#init-recurring-sale">InitRecurringSale</a></li>
+<li><a href="#init-recurring-sale-3d">InitRecurringSale3d</a></li>
+<li><a href="#recurring-sale">RecurringSale</a></li>
+</ul>
+
+<p>Those need to have been completed using a card issued by our Issuing API.</p>
+
+<aside class="notice">
+eZeeCard Payout is available through Processing API and VT only!
+</aside>
+
+<aside class="notice">
+eZeeCard Payout has amount limits of minimum 10 EUR and maximum of 800 EUR per transaction
+or its equivalent in other currencies
+</aside>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+
+<pre class="highlight php tab-php"><code>This request is not implemented yet
+</code></pre>
+
+<pre class="highlight java tab-java"><code><span class="n">This</span> <span class="n">request</span> <span class="n">is</span> <span class="n">not</span> <span class="n">implemented</span> <span class="n">yet</span>
+</code></pre>
+
+<pre class="highlight javascript tab-javascript--node"><code><span class="nx">This</span> <span class="nx">request</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">implemented</span> <span class="nx">yet</span>
+</code></pre>
+
+<pre class="highlight shell tab-shell"><code>curl https://username:password@gate.emerchantpay.net/process/TERMINAL-TOKEN <span class="se">\</span>
+   -H <span class="s2">"Content-Type: text/xml"</span> <span class="se">\</span>
+   -d <span class="s1">'
+      &lt;payment_transaction&gt;
+        &lt;transaction_type&gt;ezeecard_payout&lt;/transaction_type&gt;
+        &lt;transaction_id&gt;43671&lt;/transaction_id&gt;
+        &lt;usage&gt;40208 concert tickets&lt;/usage&gt;
+        &lt;remote_ip&gt;245.253.2.12&lt;/remote_ip&gt;
+        &lt;amount&gt;1000&lt;/amount&gt;
+        &lt;currency&gt;EUR&lt;/currency&gt;
+        &lt;reference_id&gt;43672&lt;/reference_id&gt;
+      &lt;/payment_transaction&gt;
+      '</span>
+</code></pre>
+
+<p><strong>Request Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transaction_type</td>
+<td>required</td>
+<td></td>
+<td>The transaction type</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>required</td>
+<td>string(255)</td>
+<td>Unique transaction id defined by merchant</td>
+</tr>
+<tr>
+<td>usage</td>
+<td>optional</td>
+<td>string(255)</td>
+<td>Description of the transaction for later use</td>
+</tr>
+<tr>
+<td>remote_ip</td>
+<td>required*</td>
+<td>IPv4 address</td>
+<td>IPv4 address of customer</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>required</td>
+<td>integer &gt; 0</td>
+<td>Amount of transaction in minor currency unit, see <a href="#currency-and-amount-handling">Currency and Amount Handling</a> for details</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>required</td>
+<td>string(3)</td>
+<td>Currency code in <a href="http://www.xe.com/iso4217.php">ISO 4217</a></td>
+</tr>
+<tr>
+<td>reference_id</td>
+<td>required</td>
+<td>string(32)</td>
+<td>Unique id returned by corresponding transaction</td>
+</tr>
+</tbody></table>
+
+<p><code>required* = conditionally required</code></p>
+
+<blockquote>
+<p>Successful Response</p>
+</blockquote>
+
+<pre class="highlight php tab-php"><code>This request is not implemented yet
+</code></pre>
+
+<pre class="highlight java tab-java"><code><span class="n">This</span> <span class="n">request</span> <span class="n">is</span> <span class="n">not</span> <span class="n">implemented</span> <span class="n">yet</span>
+</code></pre>
+
+<pre class="highlight javascript tab-javascript--node"><code><span class="nx">This</span> <span class="nx">request</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">implemented</span> <span class="nx">yet</span>
+</code></pre>
+
+<pre class="highlight shell tab-shell"><code>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span>?&gt;
+&lt;payment_transaction&gt;
+  &lt;transaction_type&gt;ezeecard_payout&lt;/transaction_type&gt;
+  &lt;status&gt;approved&lt;/status&gt;
+  &lt;unique_id&gt;43672&lt;/unique_id&gt;
+  &lt;transaction_id&gt;43671&lt;/transaction_id&gt;
+  &lt;technical_message&gt;&lt;/technical_message&gt;
+  &lt;message&gt;&lt;/message&gt;
+  &lt;mode&gt;live&lt;/mode&gt;
+  &lt;timestamp&gt;2017-11-10T13:10:18Z&lt;/timestamp&gt;
+  &lt;amount&gt;1000&lt;/amount&gt;
+  &lt;currency&gt;EUR&lt;/currency&gt;
+&lt;/payment_transaction&gt;
+</code></pre>
+
+<p><strong>Successful Response Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transaction_type</td>
+<td>string</td>
+<td>The transaction type</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status of the transaction, see <a href="#transaction-states">states</a></td>
+</tr>
+<tr>
+<td>unique_id</td>
+<td>string(32)</td>
+<td>Unique id defined by gate (must later be used if capturing, voiding or refunding a transaction)</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>string(255)</td>
+<td>Unique transaction id defined by merchant</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string(255)</td>
+<td>Human readable error message which can be displayed to users.</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>string</td>
+<td>Mode of the transaction’s terminal, can be &quot;live&quot; or &quot;test&quot;</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>string</td>
+<td>Time when the transaction was processed in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 Combined date and time</a> e.g. 2007-08- 30T17:46:11Z</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>integer</td>
+<td>Amount of transaction in minor currency unit, see <a href="#currency-and-amount-handling">Currency and Amount Handling</a> for details</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Currency code in <a href="http://www.xe.com/iso4217.php">ISO 4217</a></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Error Response</p>
+</blockquote>
+
+<pre class="highlight php tab-php"><code>This request is not implemented yet
+</code></pre>
+
+<pre class="highlight java tab-java"><code><span class="n">This</span> <span class="n">request</span> <span class="n">is</span> <span class="n">not</span> <span class="n">implemented</span> <span class="n">yet</span>
+</code></pre>
+
+<pre class="highlight javascript tab-javascript--node"><code><span class="nx">This</span> <span class="nx">request</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">implemented</span> <span class="nx">yet</span>
+</code></pre>
+
+<pre class="highlight shell tab-shell"><code>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span>?&gt;
+&lt;payment_transaction&gt;
+  &lt;transaction_type&gt;ezeecard_payout&lt;/transaction_type&gt;
+  &lt;status&gt;error&lt;/status&gt;
+  &lt;unique_id&gt;43672&lt;/unique_id&gt;
+  &lt;transaction_id&gt;43671&lt;/transaction_id&gt;
+  &lt;technical_message&gt;invalid deposit transaction&lt;/technical_message&gt;
+  &lt;message&gt;&lt;/message&gt;
+  &lt;mode&gt;live&lt;/mode&gt;
+  &lt;timestamp&gt;2017-11-10T13:10:18Z&lt;/timestamp&gt;
+  &lt;amount&gt;1000&lt;/amount&gt;
+  &lt;currency&gt;EUR&lt;/currency&gt;
+&lt;/payment_transaction&gt;
+</code></pre>
+
+<p><strong>Error Response Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transaction_type</td>
+<td>string</td>
+<td>The transaction type</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status of the transaction, see <a href="#transaction-states">states</a></td>
+</tr>
+<tr>
+<td>unique_id</td>
+<td>string(32)</td>
+<td>Unique id defined by gate (must later be used if capturing, voiding or refunding a transaction)</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>string(255)</td>
+<td>Unique transaction id defined by merchant</td>
+</tr>
+<tr>
+<td>technical_message</td>
+<td>string(255)</td>
+<td>Technical error message (for internal use only, not to be displayed to users).</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string(255)</td>
+<td>Human readable error message which can be displayed to users.</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>string</td>
+<td>Mode of the transaction’s terminal, can be &quot;live&quot; or &quot;test&quot;</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>string</td>
+<td>Time when the transaction was processed in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 Combined date and time</a> e.g. 2007-08- 30T17:46:11Z</td>
 </tr>
 <tr>
 <td>amount</td>
