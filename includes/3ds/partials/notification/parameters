@@ -1,0 +1,30 @@
+<p><strong>3DS Attributes</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>threeds_authentication_flow</td>
+<td>string</td>
+<td>Identifies the concrete 3DS authentication flow that the transaction has gone through. It will be available in the notification only if the consumer has finished the 3DS authentication with the issuer. The value for 3DSv1 will be <a href="#3ds-v1-authentication-flow">payer_authentication</a>. The available values for 3DSv2 are <a href="#3ds-v2-frictionless-authentication-flow">frictionless</a>, <a href="#3ds-v2-challenge-authentication-flow">challenge</a> and <a href="#3ds-v2-fallback-authentication-flow">fallback</a>.</td>
+</tr>
+<tr>
+<td>threeds_method_status</td>
+<td>string</td>
+<td>Identifies the status of the <a href="#3ds-v2-introduction">3DS-Method</a> in the scope of 3DSv2 authentication protocol. The possible values are <strong>required</strong>, <strong>in_progress</strong> and <strong>completed</strong>.</td>
+</tr>
+<tr>
+<td>threeds_target_protocol_version</td>
+<td>string(1)</td>
+<td>Identifies the 3DS protocol that has been enforced. The possible values are <strong>1</strong>, <strong>2</strong>. In case it&#39;s <strong>2</strong>, you are integrated with the 3DSv2 authentication protocol, otherwise with 3DSv1.</td>
+</tr>
+<tr>
+<td>threeds_concrete_protocol_version</td>
+<td>string(1)</td>
+<td>Identifies the concrete 3DS protocol version that the transaction has gone through. The possible values are <strong>1</strong>, <strong>2</strong>. The value will be <strong>1</strong> in case of 3DSv1 authentication protocol used or a <a href="#3ds-v2-fallback-authentication-flow">fallback from 3DSv2 to 3DSv1 has happened</a>.</td>
+</tr>
+</tbody></table>
