@@ -1,0 +1,48 @@
+<h2 id='funding-transaction-identifier-types-2'>Funding Transaction identifier types</h2>
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Required MCCs</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>general_person_to_person</td>
+<td>4829, 6538, 6540</td>
+</tr>
+<tr>
+<td>person_to_person_card_account</td>
+<td>4829</td>
+</tr>
+<tr>
+<td>own_account</td>
+<td>4829, 6538</td>
+</tr>
+<tr>
+<td>own_credit_card_bill</td>
+<td>4829, 6538</td>
+</tr>
+<tr>
+<td>business_disbursement</td>
+<td>any</td>
+</tr>
+<tr>
+<td>government_or_non_profit_disbursement</td>
+<td>any</td>
+</tr>
+<tr>
+<td>rapid_merchant_settlement</td>
+<td>any</td>
+</tr>
+<tr>
+<td>general_business_to_business</td>
+<td>any</td>
+</tr>
+<tr>
+<td>own_staged_digital_wallet_account</td>
+<td>any</td>
+</tr>
+<tr>
+<td>own_debit_or_prepaid_card_account</td>
+<td>any</td>
+</tr>
+</tbody></table>

@@ -1,0 +1,44 @@
+<h2 id='funding-transaction-receiver-account-types-2'>Funding Transaction Receiver Account types</h2>
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>rtn_and_bank_account_number</td>
+<td>Routing Transit Number and Bank Account Number</td>
+</tr>
+<tr>
+<td>iban</td>
+<td>International Bank Account Number</td>
+</tr>
+<tr>
+<td>card_account</td>
+<td>Card Account</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Electronic Mail</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>Phone Number</td>
+</tr>
+<tr>
+<td>bank_account_number_and_bic</td>
+<td>Bank Account Number and Business Identifier Code</td>
+</tr>
+<tr>
+<td>wallet_id</td>
+<td>Wallet ID</td>
+</tr>
+<tr>
+<td>social_network_id</td>
+<td>Unique Identifier for Social Network Application</td>
+</tr>
+<tr>
+<td>other</td>
+<td>Any other type</td>
+</tr>
+</tbody></table>

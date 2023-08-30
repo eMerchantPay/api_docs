@@ -1,0 +1,100 @@
+<h1 id='funding-transactions'>Funding Transactions</h1><h2 id='general-info'>General Info</h2>
+<p>Funding transactions are special types of transactions and they require identifier type and receiver related
+details including receiver name, country, account number and account type. See the below tables for
+available identifier types and receiver account types.</p>
+
+<h2 id='funding-transaction-identifier-types'>Funding Transaction identifier types</h2>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Required MCCs</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>general_person_to_person</td>
+<td>4829, 6538, 6540</td>
+</tr>
+<tr>
+<td>person_to_person_card_account</td>
+<td>4829</td>
+</tr>
+<tr>
+<td>own_account</td>
+<td>4829, 6538</td>
+</tr>
+<tr>
+<td>own_credit_card_bill</td>
+<td>4829, 6538</td>
+</tr>
+<tr>
+<td>business_disbursement</td>
+<td>any</td>
+</tr>
+<tr>
+<td>government_or_non_profit_disbursement</td>
+<td>any</td>
+</tr>
+<tr>
+<td>rapid_merchant_settlement</td>
+<td>any</td>
+</tr>
+<tr>
+<td>general_business_to_business</td>
+<td>any</td>
+</tr>
+<tr>
+<td>own_staged_digital_wallet_account</td>
+<td>any</td>
+</tr>
+<tr>
+<td>own_debit_or_prepaid_card_account</td>
+<td>any</td>
+</tr>
+</tbody></table>
+
+<h2 id='funding-transaction-receiver-account-types'>Funding Transaction Receiver Account types</h2>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>rtn_and_bank_account_number</td>
+<td>Routing Transit Number and Bank Account Number</td>
+</tr>
+<tr>
+<td>iban</td>
+<td>International Bank Account Number</td>
+</tr>
+<tr>
+<td>card_account</td>
+<td>Card Account</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Electronic Mail</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>Phone Number</td>
+</tr>
+<tr>
+<td>bank_account_number_and_bic</td>
+<td>Bank Account Number and Business Identifier Code</td>
+</tr>
+<tr>
+<td>wallet_id</td>
+<td>Wallet ID</td>
+</tr>
+<tr>
+<td>social_network_id</td>
+<td>Unique Identifier for Social Network Application</td>
+</tr>
+<tr>
+<td>other</td>
+<td>Any other type</td>
+</tr>
+</tbody></table>
