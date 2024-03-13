@@ -21,7 +21,7 @@ available identifier types and receiver account types.</p>
 </tr>
 <tr>
 <td>own_account</td>
-<td>4829, 6538</td>
+<td>4829, 6051, 6211, 6538, 6540, 7800, 7801, 7802, 7994, 7995, 9406</td>
 </tr>
 <tr>
 <td>own_credit_card_bill</td>
