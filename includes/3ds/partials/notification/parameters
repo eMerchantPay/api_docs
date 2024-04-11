@@ -28,6 +28,11 @@
 <td>Identifies the concrete 3DS protocol version that the transaction has gone through. The possible values are <strong>2</strong>.</td>
 </tr>
 <tr>
+<td>threeds_protocol_sub_version</td>
+<td>string(1)</td>
+<td>Identifies the 3DS protocol sub-version that the transaction has gone through. The possible values are <strong>1</strong>, <strong>2</strong>, <strong>3</strong>, <strong>4</strong>, <strong>5</strong>, <strong>6</strong>, <strong>7</strong>, <strong>8</strong>, <strong>9</strong>.</td>
+</tr>
+<tr>
 <td>threeds_authentication_status_reason_code</td>
 <td>string(2)</td>
 <td>See <a href="#threeds-authentication-status-reason-codes">Status Reason Code</a> for details.</td>
