@@ -84,6 +84,9 @@ available identifier types and receiver account types.</p>
 <tr>
 <td>wallet_transfer</td>
 </tr>
+<tr>
+<td>liquid_assets</td>
+</tr>
 </tbody></table>
 
 <h2 id='funding-transaction-receiver-account-types'>Funding Transaction Receiver Account types</h2>

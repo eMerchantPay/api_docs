@@ -28,4 +28,7 @@
 <tr>
 <td>wallet_transfer</td>
 </tr>
+<tr>
+<td>liquid_assets</td>
+</tr>
 </tbody></table>
